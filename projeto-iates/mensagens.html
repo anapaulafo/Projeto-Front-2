@@ -33,6 +33,39 @@
 
       <main>
 <h1>Mensagens</h1>
+
+<div class="tabela">
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th>Mensagem</th>
+      </tr>
+    </thead>
+    <tbody id="tabela-msg"></tbody>
+  </table>
+</div>
+</main>
+</div>
+<script src="js/jquery-3.6.4.min.js"></script>
+<script src="js/api.js"></script>
+<script>
+$(document).ready(function() {
+var mensagens = obterMensagens();
+var tabelaMensagens = $("#tabela-msg");
+mensagens.forEach(function(mensagem) {
+  var linha = `
+    <tr>
+      <td>${mensagem.nome}</td>
+      <td>${mensagem.email}</td>
+      <td>${mensagem.mensagem}</td>
+    </tr>
+  `;
+  tabelaMensagens.append(linha);
+});
+});
+</script>
       </main>
     </div>
     <footer>
