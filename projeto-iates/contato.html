@@ -11,55 +11,76 @@
 
   <body>
     <div class="page">
-    <header>
-      <div id="title">
-        <img src="images/barco1.png" alt="ícone de barco" />
-        <div class="headtitle">
-          <h1>Luxo</h1>
-          <h2>Aluguel de iates</h2>
-        </div>
-      </div>
-
-      <nav>
-        <ul class="navmenu">
-          <li><a href="index.html">Página inicial</a></li>
-          <li><a href="aluguel.html">Aluguel de iates</a></li>
-          <li><a href="destinos.html">Destinos</a></li>
-          <li><a href="tripulacao.html">Tripulação</a></li>
-          <li><a href="contato.html" class="accent">Contato</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <main>
-      <div class="pagtitle">
-        <div class="bgtitle"></div>
-        <h2>Entre em contato</h2>
-      </div>
-
-      <form>
-        <div class="entry">
-          <label for="nome">Nome</label>
-          <input type="text" id="nome" />
+      <header>
+        <div id="title">
+          <img src="images/barco1.png" alt="ícone de barco" />
+          <div class="headtitle">
+            <h1>Luxo</h1>
+            <h2>Aluguel de iates</h2>
+          </div>
         </div>
 
-        <div class="entry">
-          <label for="email">E-mail</label>
-          <input type="email" id="email" />
+        <nav>
+          <ul class="navmenu">
+            <li><a href="index.html">Página inicial</a></li>
+            <li><a href="aluguel.html">Aluguel de iates</a></li>
+            <li><a href="destinos.html">Destinos</a></li>
+            <li><a href="tripulacao.html">Tripulação</a></li>
+            <li><a href="contato.html" class="accent">Contato</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        <div class="pagtitle">
+          <div class="bgtitle"></div>
+          <h2>Entre em contato</h2>
         </div>
 
-        <div class="entry">
-          <label for="msg">Mensagem</label>
-          <textarea cols="40" rows="7" id="msg"></textarea>
-        </div>
-      </form>
+        <form>
+          <div class="entry">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" />
+          </div>
 
-      <div class="buttons">
-        <button class="button">Enviar</button>
-      </div>
-    </main>
+          <div class="entry">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" />
+          </div>
+
+          <div class="entry">
+            <label for="msg">Mensagem</label>
+            <textarea cols="40" rows="7" id="msg"></textarea>
+          </div>
+        </form>
+
+        <div class="buttons">
+          <button class="button">Enviar</button>
+        </div>
+      </main>
     </div>
-
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <script src="js/api.js"></script>
+    <script>
+      $(document).ready(function() {
+        $(".button").click(function(event) {
+          event.preventDefault();
+      var nome = $("#nome").val();
+      var email = $("#email").val();
+      var texto = $("#msg").val();
+      var mensagem = {
+          nome: nome,
+          email: email,
+          mensagem: texto
+          };
+      inserirMensagem(mensagem);
+      $("#nome").val("");
+      $("#email").val("");
+      $("#msg").val("");
+      alert("Mensagem enviada com sucesso!");
+    });
+  });
+    </script>
     <footer>
       <p>© 2023 por Luxo aluguel de iates</p>
     </footer>
